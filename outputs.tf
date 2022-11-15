@@ -13,11 +13,6 @@ output "network_interface_private_ip" {
   value       = "${azurerm_network_interface.vm.*.private_ip_address}"
 }
 
-output "availability_set_id" {
-  description = "id of the availability set where the vms are provisioned."
-  value       = "${azurerm_availability_set.vm.id}"
-}
-
 /* optionally, retrieve public IP properties
 output "public_ip_id" {
   description = "id of the public ip address provisoned."
