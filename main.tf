@@ -23,7 +23,7 @@ resource "azurerm_storage_account" "vm-sa" {
 
 resource "azurerm_virtual_machine" "vm-linux" {
   count                         = "${!contains(tolist(["${var.vm_os_simple}","${var.vm_os_offer}"]), "WindowsServer") && var.is_windows_image != "true" && var.data_disk == "false" ? var.nb_instances : 0}"
-  name                          = "${var.vm_hostname}${count.index}"
+  name                          = "${var.vm_hostname}"
   location                      = "${var.location}"
   resource_group_name           = "${var.resource_group_name}"
   availability_set_id           = "${azurerm_availability_set.vm.id}"
